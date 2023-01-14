@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-score-keeper/static/css/main.3ad0d551.css",
+    "main.js": "/react-score-keeper/static/js/main.7628cd27.js",
+    "index.html": "/react-score-keeper/index.html",
+    "main.3ad0d551.css.map": "/react-score-keeper/static/css/main.3ad0d551.css.map",
+    "main.7628cd27.js.map": "/react-score-keeper/static/js/main.7628cd27.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ad0d551.css",
+    "static/js/main.7628cd27.js"
+  ]
+}
