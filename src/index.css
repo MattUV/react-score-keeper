@@ -16,6 +16,57 @@ td {
     border: 1px black solid;
 }
 
-.icon {
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #fefefe;
+}
+
+tfoot {
+    background-color: #fefefe;
+}
+
+.score {
+    width: 100%;
+    max-width: 150px;
+    text-align: center;
+    margin-inline: auto;
+}
+
+.criteria {
+    width: 1%;
+    position: sticky;
+    left: 0;
+    background: fixed;
+}
+
+.criteria--icon {
     height: 30px;
+}
+
+/* .score--case {
+    padding: 5px;
+} */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Firefox */
+}
+
+.score--case--input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+}
+
+.score--case--input:focus {
+    outline: none;
 }

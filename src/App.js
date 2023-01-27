@@ -13,7 +13,17 @@ import Score from "./Scores"
 function App() {
     const data = {
         gameName: "7 Wonders Duel",
-        players: ["Sandra", "Matthieu"],
+        players: [
+            "Sandra",
+            "Matthieu",
+            "Nathaël",
+            "Sandra",
+            "Matthieu",
+            "Nathaël",
+            "Sandra",
+            "Matthieu",
+            "Nathaël",
+        ],
         max_players: 2,
         criteria: [
             { img: bleues, color: "#d5eef3", extension: "" },

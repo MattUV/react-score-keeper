@@ -19,7 +19,7 @@ export default function Score(props) {
                 criteria.map((c) => ({
                     player: p.id,
                     criteria: c.id,
-                    score: 0,
+                    score: "",
                 }))
             )
             .flat()
@@ -34,7 +34,11 @@ export default function Score(props) {
             let subTotal = 0
             scores
                 .filter((item) => item.player == t.player)
-                .forEach((item) => (subTotal += parseInt(item.score)))
+                .forEach((item) => {
+                    let value = parseInt(item.score)
+                    value = isNaN(value) ? 0 : value
+                    subTotal += value
+                })
             setTotal((prevTotal) =>
                 prevTotal.map((item) =>
                     item.player == t.player
@@ -48,18 +52,19 @@ export default function Score(props) {
     const listPlayers = players.map((p) => <td key={p.id}>{p.name}</td>)
     const listColumns = criteria.map((c) => (
         <tr key={c.id} style={{ backgroundColor: c.color }}>
-            <td>
-                <img className="icon" src={c.img} />
+            <td className="criteria" style={{ backgroundColor: c.color }}>
+                <img className="criteria--icon" src={c.img} />
             </td>
             {players.map((p) => (
-                <td key={p.id}>
+                <td className="score--case" key={p.id}>
                     <input
                         type="number"
+                        className="score--case--input"
                         value={getScore(p.id, c.id)}
                         player={p.id}
                         criteria={c.id}
                         onChange={(event) => handleChange(p.id, c.id, event)}
-                        name="pouet"
+                        onFocus={handleFocus}
                     />
                 </td>
             ))}
@@ -92,19 +97,25 @@ export default function Score(props) {
         )
     }
 
+    function handleFocus(event) {
+        event.target.select()
+    }
+
     return (
         <table className="score">
             <thead>
-                <tr>
-                    <th>{props.gameData.gameName}</th>
-                </tr>
                 <tr>
                     <td>&nbsp;</td>
                     {listPlayers}
                 </tr>
             </thead>
             <tbody>{listColumns}</tbody>
-            <tfoot>{listTotal}</tfoot>
+            <tfoot>
+                {listTotal}
+                <tr>
+                    <th colSpan="10">{props.gameData.gameName}</th>
+                </tr>
+            </tfoot>
         </table>
     )
 }
